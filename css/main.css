@@ -14,10 +14,6 @@
   src: url('../fonts/poppins/Poppins-Medium.ttf');
 }
 
-@font-face {
-  font-family: Montserrat-Bold;
-  src: url('../fonts/montserrat/Montserrat-Bold.ttf');
-}
 
 /*---------------------------------------------------*/
 a {
@@ -102,7 +98,7 @@ iframe {
   font-family: Poppins-Regular;
   font-size: 13px;
   line-height: 1.5;
-  color: #999999;
+  color: #666666;
 }
 
 .txt2 {
@@ -142,6 +138,24 @@ iframe {
 
 /*---------------------------------------------*/
 
+.container-login100 {
+  width: 98%;
+  min-height: 93vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #2c3fcc;
+  background: -webkit-linear-gradient(-200deg, #2c3fcc, #17e8cf);
+}
+
+/*---------------------------------------------*/
+
 .wrap-input100 {
   position: relative;
   width: 50%;
@@ -161,6 +175,8 @@ iframe {
   height: 50px;
   border-radius: 25px;
   padding: 0 30px 0 68px;
+  background: #b5bcb8;
+  background: -webkit-linear-gradient(-135deg, #b5bcb8, #070707);
 }
 
 
