@@ -152,7 +152,7 @@ iframe {
   justify-content: center;
   align-items: center;
   background: #2c3fcc;
-  background: -webkit-linear-gradient(-200deg, #2c3fcc, #17e8cf);
+  background: -webkit-linear-gradient(-90deg, #7a98d6, #425272);
 }
 
 /*---------------------------------------------*/
@@ -177,7 +177,7 @@ iframe {
   border-radius: 25px;
   padding: 0 30px 0 68px;
   background: #b5bcb8;
-  background: -webkit-linear-gradient(-135deg, #b5bcb8, #070707);
+  background: -webkit-linear-gradient(-135deg, #8e8e8e, #3f3f3f);
 }
 
 
