@@ -141,7 +141,7 @@ iframe {
 .container-login {
   margin-right: auto;
   margin-left: auto;
-  width: 98%;
+  width: 100%;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -151,7 +151,6 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 15px;
   background: #2c3fcc;
   background: -webkit-linear-gradient(-200deg, #2c3fcc, #17e8cf);
 }
