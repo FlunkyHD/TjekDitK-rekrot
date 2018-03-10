@@ -1,3 +1,8 @@
+<?php
+/* Main page with two forms: sign up and log in */
+require 'db.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +12,22 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    if (isset($_POST['login'])) { //user logging in
+
+        require 'login.php';
+
+    }
+    
+    elseif (isset($_POST['register'])) { //user registering
+
+        require 'register.php';
+
+    }
+}
+?>
 <body style="margin: 0px">
 
 	<div>
