@@ -4,14 +4,12 @@ require 'db.php';
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<title>Digitalt Kørekort</title>
-	<meta charset="UTF-8">
-
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
+  <title>Digitalt Kørekort</title>
+  <?php include 'css/css.html'; ?>
 </head>
+
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
@@ -28,65 +26,90 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
 }
 ?>
-<body style="margin: 0px">
+<body>
+  <div class="form">
 
-	<div>
-		<div class="container-login">
-			<div class="wrap-login">
-				<div class="login-pic js-tilt" data-tilt>
-					<img src="images/img-01.png" alt="IMG">
-				</div>
+      <ul class="tab-group">
+        <li class="tab"><a href="#signup">Lav Bruger</a></li>
+        <li class="tab active"><a href="#login">Log Ind</a></li>
+      </ul>
 
-				<form class="login-form validate-form">
-					<form action="index.php" method="post" autocomplete="off">
-					<span class="login-form-title">
-						Digitalt Kørekort Login
-					</span>
+      <div class="tab-content">
 
-					<div class="wrap-input validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input" type="email" name="email" placeholder="E-mail" required autocomplete="off">
-						<span class="focus-input"></span>
-						<span class="symbol-input">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-					</div>
+         <div id="login">
+          <h1>Velkommen til dit digitale kørekort</h1>
 
-					<div class="wrap-input validate-input" data-validate = "Password is required">
-						<input class="input" type="password" name="pass" placeholder="Kodeord" required autocomplete="off">
-						<span class="focus-input"></span>
-						<span class="symbol-input">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-					</div>
+          <form action="index.php" method="post" autocomplete="off">
 
-					<div class="container-login-form-btn">
-						<button class="login-form-btn" name="login"/>
-							Login
-						</button>
-					</div>
+            <div class="field-wrap">
+            <label>
+              E-mail <span class="req">*</span>
+            </label>
+            <input type="email" required autocomplete="off" name="email"/>
+          </div>
 
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Glemt
-						</span>
-						<a class="txt1" href="forgot.php">
-							Brugernavn / Kodeord?
-						</a>
-					</div>
+          <div class="field-wrap">
+            <label>
+              Kodeord <span class="req">*</span>
+            </label>
+            <input type="password" required autocomplete="off" name="password"/>
+          </div>
 
-					<div class="text-center p-t-136">
-						<button class="txt1" name="register"/>
-							Lav en Bruger
-						</button>
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
-				</form>
-			</form>
-			</div>
-		</div>
-	</div>
+          <p class="forgot"><a href="forgot.php">Glemt dit kodeord?</a></p>
 
+          <button class="button button-block" name="login" />Log Ind</button>
+
+          </form>
+
+        </div>
+
+        <div id="signup">
+          <h1>Lav en bruger gratis</h1>
+
+          <form action="index.php" method="post" autocomplete="off">
+
+          <div class="top-row">
+            <div class="field-wrap">
+              <label>
+                Navn<span class="req">*</span>
+              </label>
+              <input type="text" required autocomplete="off" name='firstname' />
+            </div>
+
+            <div class="field-wrap">
+              <label>
+                Efternavn<span class="req">*</span>
+              </label>
+              <input type="text"required autocomplete="off" name='lastname' />
+            </div>
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              E-mail<span class="req">*</span>
+            </label>
+            <input type="email"required autocomplete="off" name='email' />
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Kodeord<span class="req">*</span>
+            </label>
+            <input type="password"required autocomplete="off" name='password'/>
+          </div>
+
+          <button type="submit" class="button button-block" name="register" />Lav bruger</button>
+
+          </form>
+
+        </div>
+
+      </div><!-- tab-content -->
+
+</div> <!-- /form -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?ver=<?php echo rand(111,999)?>'></script>
+
+    <script src="js/index.js"></script>
 
 </body>
 </html>

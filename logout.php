@@ -8,15 +8,15 @@ session_destroy();
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Error</title>
+  <title>Fejl</title>
   <?php include 'css/css.html'; ?>
 </head>
 
 <body>
     <div class="form">
-          <h1>Thanks for stopping by</h1>
+          <h1>Tak fordi at du bruge vores hjemmeside</h1>
               
-          <p><?= 'You have been logged out!'; ?></p>
+          <p><?= 'Du er blevet logget ud!'; ?></p>
           
           <a href="index.php"><button class="button button-block"/>Home</button></a>
 

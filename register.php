@@ -47,11 +47,11 @@ else { // Email doesn't already exist in a database, proceed...
         $message_body = '
         Hello '.$first_name.',
 
-        Thank you for signing up!
+        Tak for at tilmelde dig vores hjemmeside!
 
-        Please click this link to activate your account:
+        Klik på nedenstående link for at aktivere din bruger:
 
-        http://localhost/login-system/verify.php?email='.$email.'&hash='.$hash;  
+        http://localhost/login/verify.php?email='.$email.'&hash='.$hash;  
 
         mail( $to, $subject, $message_body );
 

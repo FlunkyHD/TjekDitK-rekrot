@@ -19,14 +19,14 @@ else {
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Welcome <?= $first_name.' '.$last_name ?></title>
+  <title>Velkommen <?= $first_name.' '.$last_name ?></title>
   <?php include 'css/css.html'; ?>
 </head>
 
 <body>
   <div class="form">
 
-          <h1>Welcome</h1>
+          <h1>Velkommen</h1>
           
           <p>
           <?php 

@@ -7,7 +7,8 @@ html {
 }
 
 body {
-  background: #ffffff; /* #c1bdba */
+  background: #2c3fcc;
+  background: -webkit-linear-gradient(65deg, #7a98d6, #425272);
   font-family: 'Titillium Web', sans-serif;
 }
 
@@ -22,7 +23,7 @@ a:hover {
 }
 
 .form {
-  background: rgba(19, 35, 47, 0.9); 
+  background: rgba(19, 35, 47, 0.9);
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
