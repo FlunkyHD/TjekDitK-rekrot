@@ -8,7 +8,7 @@ html {
 
 body {
   background: #2c3fcc;
-  background: -webkit-linear-gradient(65deg, #7a98d6, #425272);
+  background: -webkit-linear-gradient(180deg, #7a98d6, #254587);
   font-family: 'Titillium Web', sans-serif;
 }
 
@@ -19,14 +19,14 @@ a {
   transition: .5s ease;
 }
 a:hover {
-  color: #179b77;
+  color: #218469;
 }
 
 .form {
-  background: rgba(19, 35, 47, 0.9);
+  background: rgba(19, 25, 40, 0.9);
   padding: 40px;
   max-width: 600px;
-  margin: 40px auto;
+  margin: 140px auto;
   border-radius: 4px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
