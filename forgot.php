@@ -23,12 +23,12 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
         $first_name = $user['first_name'];
 
         // Session message to display on success.php
-        $_SESSION['message'] = "<p>Please check your email <span>$email</span>"
-        . " for a confirmation link to complete your password reset!</p>";
+        $_SESSION['message'] = "<p>Tjek din E-mail <span>$email</span>"
+        . " for at finde linket til at reset dit kodeord </p>";
 
         // Send registration confirmation link (reset.php)
         $to      = $email;
-        $subject = 'Password Reset Link ( clevertechie.com )';
+        $subject = 'Reset dit kodeord!';
         $message_body = '
         Hello '.$first_name.',
 
@@ -36,7 +36,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
 
         Klik på linket nedenunder for at reset dit kodeord:
 
-        http://localhost/login/reset.php?email='.$email.'&hash='.$hash;
+        http://localhost/kort/reset.php?email='.$email.'&hash='.$hash;
 
         mail($to, $subject, $message_body);
 
