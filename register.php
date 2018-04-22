@@ -7,11 +7,15 @@
 $_SESSION['email'] = $_POST['email'];
 $_SESSION['first_name'] = $_POST['firstname'];
 $_SESSION['last_name'] = $_POST['lastname'];
+$_SESSION['cpr_number'] = $_POST['cpr_number'];
+$_SESSION['expire_date'] = $_POST['expire_date'];
 
 // Escape all $_POST variables to protect against SQL injections
 $first_name = $mysqli->escape_string($_POST['firstname']);
 $last_name = $mysqli->escape_string($_POST['lastname']);
 $email = $mysqli->escape_string($_POST['email']);
+$cpr = $mysqli->escape_string($_POST['cpr_number']);
+$expire = $mysqli->escape_string($_POST['expire_date']);
 $password = $mysqli->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
 $hash = $mysqli->escape_string( md5( rand(0,1000) ) );
 
@@ -28,8 +32,8 @@ if ( $result->num_rows > 0 ) {
 else { // Email doesn't already exist in a database, proceed...
 
     // active is 0 by DEFAULT (no need to include it here)
-    $sql = "INSERT INTO users (first_name, last_name, email, password, hash) "
-            . "VALUES ('$first_name','$last_name','$email','$password', '$hash')";
+    $sql = "INSERT INTO users (first_name, last_name, email, cpr_number, expire_date, password, hash) "
+            . "VALUES ('$first_name','$last_name','$email','$cpr','$expire','$password','$hash')";
 
     // Add user to the database
     if ( $mysqli->query($sql) ){
@@ -59,7 +63,7 @@ else { // Email doesn't already exist in a database, proceed...
         mail( 'mortenj2@hotmail.dk', $subject, $message );
 
 
-        mail("morten@joorgensen.dk","Success","Send mail from localhost using PHP");
+        mail($email,"Success","Send mail from localhost using PHP");
 
         header("location: profile.php");
 

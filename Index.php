@@ -98,6 +98,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <input type="password"required autocomplete="off" name='password'/>
           </div>
 
+          <div class="field-wrap">
+            <label>
+              CPR-Nummer<span class="req">*</span>
+            </label>
+            <input type="text"required autocomplete="off" name='cpr_number'/>
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Kørekort Udløbsdato<span class="req">*</span>
+            </label>
+            <input type="text"required autocomplete="off" name='expire_date'/>
+          </div>
+
           <button type="submit" class="button button-block" name="register" />Lav bruger</button>
 
           </form>
