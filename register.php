@@ -16,7 +16,7 @@ $last_name = $mysqli->escape_string($_POST['lastname']);
 $email = $mysqli->escape_string($_POST['email']);
 $cpr = $mysqli->escape_string($_POST['cpr_number']);
 $expire = $mysqli->escape_string($_POST['expire_date']);
-$password = $mysqli->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
+$password = $mysqli->escape_string(crypt($_POST['password']));
 $hash = $mysqli->escape_string( md5( rand(0,1000) ) );
 
 // Check if user with that email already exists
@@ -56,7 +56,7 @@ else { // Email doesn't already exist in a database, proceed...
 
         Klik på nedenstående link for at aktivere din bruger:
 
-        http://localhost/login/verify.php?email='.$email.'&hash='.$hash;
+        https://http://kajkager.dk.web81.curanetserver.dk/login/verify.php?email='.$email.'&hash='.$hash;
 
         $message = wordwrap($message, 70);
 

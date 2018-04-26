@@ -6,6 +6,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   <title>Digitalt Kørekort</title>
   <?php include 'css/css.html'; ?>
 </head>
@@ -121,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       </div><!-- tab-content -->
 
 </div> <!-- /form -->
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?ver=<?php echo rand(111,999)?>'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?ver='></script>
 
     <script src="js/index.js"></script>
 
