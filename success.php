@@ -1,6 +1,13 @@
 <?php
 /* Displays all successful messages */
 session_start();
+
+if ($_SERVER['HTTPS'] != "on") {
+    $url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+    header("Location: $url");
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,9 +19,9 @@ session_start();
 <div class="form">
     <h1><?= 'Success'; ?></h1>
     <p>
-    <?php 
+    <?php
     if( isset($_SESSION['message']) AND !empty($_SESSION['message']) ):
-        echo $_SESSION['message'];    
+        echo $_SESSION['message'];
     else:
         header( "location: index.php" );
     endif;

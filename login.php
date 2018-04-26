@@ -5,6 +5,12 @@
 $email = $mysqli->escape_string($_POST['email']);
 $result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
 
+if ($_SERVER['HTTPS'] != "on") {
+    $url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+    header("Location: $url");
+    exit;
+}
+
 if ( $result->num_rows == 0 ){ // User doesn't exist
     $_SESSION['message'] = "En bruger med denne E-mai findes ikke!";
     header("location: error.php");

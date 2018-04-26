@@ -2,6 +2,13 @@
 /* Main page with two forms: sign up and log in */
 require 'db.php';
 session_start();
+
+if ($_SERVER['HTTPS'] != "on") {
+    $url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+    header("Location: $url");
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html>
