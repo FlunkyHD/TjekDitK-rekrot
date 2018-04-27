@@ -2,12 +2,7 @@
 /* Registration process, inserts user info into the database
    and sends account confirmation email message
  */
- use PHPMailer\PHPMailer\PHPMailer;
- use PHPMailer\PHPMailer\Exception;
-
- require 'PHPMailer/src/Exception.php';
- require 'PHPMailer/src/PHPMailer.php';
- require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/PHPMailerAutoload.php';
 
  if ($_SERVER['HTTPS'] != "on") {
      $url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
@@ -53,13 +48,13 @@ else { // Email doesn't already exist in a database, proceed...
         $_SESSION['logged_in'] = true; // So we know the user has logged in
         $_SESSION['message'] =
 
-                 "Confirmation link has been sent to $email, please verify
-                 your account by clicking on the link in the message!";
+                 "Et bekræftelses link er blev sendt til denne email: $email, aktivere
+                  brugeren ved at klikke på linket i emailen";
 
         // Send registration confirmation link (verify.php)
 
         $to      = $email;
-        $subject = 'Aktivering af Bruger ( Digitalt Kørekort )';
+        $subject = 'Aktivering af Bruger (Digitalt Kørekort)';
         $message = '
         Hej '.$first_name.',
 
@@ -71,35 +66,42 @@ else { // Email doesn't already exist in a database, proceed...
 
         $message = wordwrap($message, 70);
 
-        $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
-        try {
-            //Server settings
-            $mail->SMTPDebug = 2;                                 // Enable verbose debug output
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'asmtp.curanet.dk';  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'service@kajkager.dk';                 // SMTP username
-            $mail->Password = 'Admin123';                           // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 8080;                                    // TCP port to connect to
+        $mail = new PHPMailer;
 
-            //Recipients
-            $mail->setFrom('service@kajkager.dk', 'Digital Kørekort');
-            $mail->addAddress($to);     // Add a recipient
+          $mail->SMTPDebug = 0;                               // Enable verbose debug output
 
-            //Content
-            $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = $subject;
-            $mail->Body    = $message;
-            $mail->AltBody = $message;
+          $mail->isSMTP();                                      // Set mailer to use SMTP
+          $mail->Host = 'asmtp.curanet.dk';  // Specify main and backup SMTP servers
+          $mail->SMTPAuth = true;                               // Enable SMTP authentication
+          $mail->Username = 'service@kajkager.dk';                 // SMTP username
+          $mail->Password = 'Admin123';                           // SMTP password
+          $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+          $mail->Port = 8080;                                    // TCP port to connect to
 
-            $mail->send();
+          $mail->setFrom('service@kajkager.dk');
+          $mail->addAddress($to);     // Add a recipient
 
+          $mail->isHTML(true);                                  // Set email format to HTML
+
+          $mail->Subject = $subject;
+          $mail->Body    = $message;
+          $mail->AltBody = $message;
+
+          $mail->send();
+
+          /* if(!$mail->send()) {
+              echo 'Message could not be sent.';
+              echo 'Mailer Error: ' . $mail->ErrorInfo;
+          } else {
+              echo 'Message has been sent';
+          } */
 
         header("location: profile.php");
 
-          }
-      }
-}
+          } else {
+            $_SESSION['message'] = 'Registration failed!';
+            header("location: error.php");
+              }
+    }
 
 ?>
