@@ -2,6 +2,13 @@
 /* Registration process, inserts user info into the database
    and sends account confirmation email message
  */
+ use PHPMailer\PHPMailer\PHPMailer;
+ use PHPMailer\PHPMailer\Exception;
+
+ require 'PHPMailer/src/Exception.php';
+ require 'PHPMailer/src/PHPMailer.php';
+ require 'PHPMailer/src/SMTP.php';
+
  if ($_SERVER['HTTPS'] != "on") {
      $url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
      header("Location: $url");
@@ -54,28 +61,45 @@ else { // Email doesn't already exist in a database, proceed...
         $to      = $email;
         $subject = 'Aktivering af Bruger ( Digitalt Kørekort )';
         $message = '
-        Hello '.$first_name.',
+        Hej '.$first_name.',
 
         Tak for at tilmelde dig vores hjemmeside!
 
         Klik på nedenstående link for at aktivere din bruger:
 
-        https://http://kajkager.dk.web81.curanetserver.dk/login/verify.php?email='.$email.'&hash='.$hash;
+        https://kajkager.dk/verify.php?email='.$email.'&hash='.$hash;
 
         $message = wordwrap($message, 70);
 
-        mail( 'mortenj2@hotmail.dk', $subject, $message );
+        $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+        try {
+            //Server settings
+            $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+            $mail->isSMTP();                                      // Set mailer to use SMTP
+            $mail->Host = 'asmtp.curanet.dk';  // Specify main and backup SMTP servers
+            $mail->SMTPAuth = true;                               // Enable SMTP authentication
+            $mail->Username = 'service@kajkager.dk';                 // SMTP username
+            $mail->Password = 'Admin123';                           // SMTP password
+            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = 8080;                                    // TCP port to connect to
 
+            //Recipients
+            $mail->setFrom('service@kajkager.dk', 'Digital Kørekort');
+            $mail->addAddress($to);     // Add a recipient
 
-        mail($email,"Success","Send mail from localhost using PHP");
+            //Content
+            $mail->isHTML(true);                                  // Set email format to HTML
+            $mail->Subject = $subject;
+            $mail->Body    = $message;
+            $mail->AltBody = $message;
+
+            $mail->send();
+
 
         header("location: profile.php");
 
-    }
-
-    else {
-        $_SESSION['message'] = 'Registration failed!';
-        header("location: error.php");
-    }
-
+          }
+      }
 }
+
+?>
