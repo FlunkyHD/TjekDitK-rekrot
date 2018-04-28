@@ -10,7 +10,7 @@ if ($_SERVER['HTTPS'] != "on") {
 
 // Check if user is logged in using the session variable
 if ( $_SESSION['logged_in'] != 1 ) {
-  $_SESSION['message'] = "You must log in before viewing your profile page!";
+  $_SESSION['message'] = "Du skal logge ind for at se din profil!";
   header("location: error.php");
       $first_name = $_SESSION['first_name'];
 }

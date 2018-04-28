@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Make sure the two passwords match
     if ( $_POST['newpassword'] == $_POST['confirmpassword'] ) {
 
-        $new_password = password_hash($_POST['newpassword'], PASSWORD_BCRYPT);
+        $new_password = crypt($_POST['newpassword']);
 
         // We get $_POST['email'] and $_POST['hash'] from the hidden input field of reset.php form
         $email = $mysqli->escape_string($_POST['email']);

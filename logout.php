@@ -15,7 +15,7 @@ session_destroy();
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Log out</title>
+  <title>Log ud</title>
   <?php include 'css/css.html'; ?>
 </head>
 
