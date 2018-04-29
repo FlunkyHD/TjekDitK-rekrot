@@ -1,6 +1,5 @@
 <?php
-/* The password reset form, the link to this page is included
-   from the forgot.php email message
+/* Siden hvor man resetter sit kodeord
 */
 require 'db.php';
 session_start();
@@ -11,13 +10,13 @@ if ($_SERVER['HTTPS'] != "on") {
     exit;
 }
 
-// Make sure email and hash variables aren't empty
+//Tjek om der står noget i email og hash variablen
 if( isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !empty($_GET['hash']) )
 {
     $email = $mysqli->escape_string($_GET['email']);
     $hash = $mysqli->escape_string($_GET['hash']);
 
-    // Make sure user email with matching hash exist
+    // Tjek om email og hash passer sammen
     $result = $mysqli->query("SELECT * FROM users WHERE email='$email' AND hash='$hash'");
 
     if ( $result->num_rows == 0 )
@@ -60,7 +59,7 @@ else {
             <input type="password"required name="confirmpassword" autocomplete="off"/>
           </div>
 
-          <!-- This input field is needed, to get the email of the user -->
+          
           <input type="hidden" name="email" value="<?= $email ?>">
           <input type="hidden" name="hash" value="<?= $hash ?>">
 

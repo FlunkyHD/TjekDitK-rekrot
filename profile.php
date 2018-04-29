@@ -1,5 +1,5 @@
 <?php
-/* Displays user information and some useful messages */
+/* Profil med bruger information */
 session_start();
 
 if ($_SERVER['HTTPS'] != "on") {
@@ -8,14 +8,13 @@ if ($_SERVER['HTTPS'] != "on") {
     exit;
 }
 
-// Check if user is logged in using the session variable
+// Ser om brugeren er logget ordenligt ind
 if ( $_SESSION['logged_in'] != 1 ) {
   $_SESSION['message'] = "Du skal logge ind for at se din profil!";
   header("location: error.php");
       $first_name = $_SESSION['first_name'];
 }
 else {
-    // Makes it easier to read
     $first_name = $_SESSION['first_name'];
     $last_name = $_SESSION['last_name'];
     $email = $_SESSION['email'];
@@ -39,12 +38,12 @@ else {
 
           <p>
           <?php
-          // Display message about account verification link only once
+         
           if ( isset($_SESSION['message']) )
           {
               echo $_SESSION['message'];
 
-              // Don't annoy the user with more messages upon page refresh
+              
               unset( $_SESSION['message'] );
           }
 
@@ -53,7 +52,7 @@ else {
 
           <?php
 
-          // Keep reminding the user this account is not active, until they activate
+          // Hvis brugeren ikke er aktiveret, så sig det til brugeren
           if ( !$active ){
               echo
               '<div class="info">

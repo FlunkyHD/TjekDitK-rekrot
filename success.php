@@ -1,5 +1,5 @@
 <?php
-/* Displays all successful messages */
+/* Hvises når det virker */
 session_start();
 
 if ($_SERVER['HTTPS'] != "on") {
@@ -13,7 +13,8 @@ if ($_SERVER['HTTPS'] != "on") {
 <html>
 <head>
   <title>Success</title>
-  <?php include 'css/css.html'; ?>
+  <?php include 'css/css.html'; ?>	
+	<meta charset="UTF-8">
 </head>
 <body>
 <div class="form">

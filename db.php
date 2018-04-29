@@ -1,5 +1,5 @@
 <?php
-/* Database connection settings */
+/* Tilsutningsindstillinger til databasen */
 $host = 'mysql20.123hotel.dk';
 $user = 'kajkager';
 $pass = 'MortenogPeter!';

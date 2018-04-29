@@ -1,5 +1,5 @@
 <?php
-/* Password reset process, updates database with new user password */
+/* Opdatere databasen med det nye kodeord */
 require 'db.php';
 session_start();
 
@@ -9,15 +9,14 @@ if ($_SERVER['HTTPS'] != "on") {
     exit;
 }
 
-// Make sure the form is being submitted with method="post"
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // Make sure the two passwords match
+    // Tjek om de 2 kodeord er ens
     if ( $_POST['newpassword'] == $_POST['confirmpassword'] ) {
 
         $new_password = crypt($_POST['newpassword']);
 
-        // We get $_POST['email'] and $_POST['hash'] from the hidden input field of reset.php form
+        
         $email = $mysqli->escape_string($_POST['email']);
         $hash = $mysqli->escape_string($_POST['hash']);
 

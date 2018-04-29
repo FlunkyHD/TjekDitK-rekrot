@@ -1,5 +1,5 @@
 <?php
-/* Log out process, unsets and destroys session variables */
+/* Log ud */
 
 if ($_SERVER['HTTPS'] != "on") {
     $url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
@@ -21,7 +21,7 @@ session_destroy();
 
 <body>
     <div class="form">
-          <h1>Tak fordi at du bruge vores hjemmeside</h1>
+          <h1>Tak fordi at du bruger vores hjemmeside</h1>
 
           <p><?= 'Du er blevet logget ud!'; ?></p>
 
