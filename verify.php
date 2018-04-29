@@ -19,12 +19,12 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
 
     if ( $result->num_rows == 0 )
     {
-        $_SESSION['message'] = "Account has already been activated or the URL is invalid!";
+        $_SESSION['message'] = "Brugeren er allederede blevet aktiveret!";
 
         header("location: error.php");
     }
     else {
-        $_SESSION['message'] = "Your account has been activated!";
+        $_SESSION['message'] = "Din bruger er blevet aktiveret!";
 
         // Set active variablen til at være 1
         $mysqli->query("UPDATE users SET active='1' WHERE email='$email'") or die($mysqli->error);
@@ -34,7 +34,7 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
     }
 }
 else {
-    $_SESSION['message'] = "Invalid parameters provided for account verification!";
+    $_SESSION['message'] = "Der er sket en fejl!";
     header("location: error.php");
 }
 ?>
