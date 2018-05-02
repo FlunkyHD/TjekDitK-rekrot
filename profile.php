@@ -65,7 +65,7 @@ else {
           <h2>Kørekort Info</h2>
           <p>Navn: <strong> <?= '  '.$first_name.' '.$last_name ?> </strong> <br> CPR-Nummer: <strong> <?= $cpr ?> </strong> <br> Udløbsdato: <strong> <?= $expire ?> </strong> </p>
 
-          <a href="logout.php"><button class="button button-block" name="logout"/>Log Out</button></a>
+          <a href="logout.php"><button class="button button-block" name="logout"/>Log ud</button></a>
 
     </div>
 

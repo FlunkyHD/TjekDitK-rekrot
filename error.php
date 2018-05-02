@@ -27,7 +27,7 @@ if ($_SERVER['HTTPS'] != "on") {
     endif;
     ?>
     </p>
-    <a href="index.php"><button class="button button-block"/>Home</button></a>
+    <a href="index.php"><button class="button button-block"/>Hjem</button></a>
 </div>
 </body>
 </html>

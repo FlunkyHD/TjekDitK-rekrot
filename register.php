@@ -98,7 +98,7 @@ else { // Hvis emailen ikke allerde findes, indsæt data i database
         header("location: profile.php");
 
           } else {
-            $_SESSION['message'] = 'Registration failed!';
+            $_SESSION['message'] = 'Registrering af bruger fejlede!';
             header("location: error.php");
               }
     }

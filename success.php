@@ -12,13 +12,13 @@ if ($_SERVER['HTTPS'] != "on") {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Success</title>
+  <title>Succes</title>
   <?php include 'css/css.html'; ?>	
 	<meta charset="UTF-8">
 </head>
 <body>
 <div class="form">
-    <h1><?= 'Success'; ?></h1>
+    <h1><?= 'Succes'; ?></h1>
     <p>
     <?php
     if( isset($_SESSION['message']) AND !empty($_SESSION['message']) ):
@@ -28,7 +28,7 @@ if ($_SERVER['HTTPS'] != "on") {
     endif;
     ?>
     </p>
-    <a href="index.php"><button class="button button-block"/>Home</button></a>
+    <a href="index.php"><button class="button button-block"/>Hjem</button></a>
 </div>
 </body>
 </html>

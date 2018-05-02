@@ -24,14 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ( $mysqli->query($sql) ) {
 
-        $_SESSION['message'] = "Your password has been reset successfully!";
+        $_SESSION['message'] = "Dit kodeord er blevet ændret!";
         header("location: success.php");
 
         }
 
     }
     else {
-        $_SESSION['message'] = "Two passwords you entered don't match, try again!";
+        $_SESSION['message'] = "De to kodeord du har skrevet er ikke ens, prøv igen!";
         header("location: error.php");
     }
 

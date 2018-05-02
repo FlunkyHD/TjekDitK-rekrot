@@ -21,12 +21,12 @@ if( isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && 
 
     if ( $result->num_rows == 0 )
     {
-        $_SESSION['message'] = "You have entered invalid URL for password reset!";
+        $_SESSION['message'] = "Du har indtastet en ugyldig URL, for at få ændret dit kodeord!";
         header("location: error.php");
     }
 }
 else {
-    $_SESSION['message'] = "Sorry, verification failed, try again!";
+    $_SESSION['message'] = "Aktiveringen fejlede, prøv igen!";
     header("location: error.php");
 }
 ?>
@@ -63,7 +63,7 @@ else {
           <input type="hidden" name="email" value="<?= $email ?>">
           <input type="hidden" name="hash" value="<?= $hash ?>">
 
-          <button class="button button-block"/>Apply</button>
+          <button class="button button-block"/>Anvend</button>
 
           </form>
 
