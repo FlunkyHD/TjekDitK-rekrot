@@ -1,5 +1,5 @@
 <?php
-/* Displays all error messages */
+/* Visning af fejlbeskeder */
 session_start();
 
 if ($_SERVER['HTTPS'] != "on") {

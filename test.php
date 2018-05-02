@@ -8,12 +8,21 @@ $mail->SMTPDebug = 2;                               // Enable verbose debug outp
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'asmtp.curanet.dk';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
+<<<<<<< HEAD
 $mail->Username = 'aktivering@kajkager.dk';                 // SMTP username
 $mail->Password = 'Admin321';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 8080;                                    // TCP port to connect to
 
 $mail->setFrom('aktivering@kajkager.dk');
+=======
+$mail->Username = 'service@kajkager.dk';                 // SMTP username
+$mail->Password = 'Admin123';                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 8080;                                    // TCP port to connect to
+
+$mail->setFrom('service@kajkager.dk');
+>>>>>>> 1789520b5860027f4599fe1a1c83f3d551b6fa1a
 $mail->addAddress('mortenj2@hotmail.dk');     // Add a recipient
 
 $mail->isHTML(true);                                  // Set email format to HTML

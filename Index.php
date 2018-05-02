@@ -1,33 +1,32 @@
 <?php
-/* Main page with two forms: sign up and log in */
+/* Startsiden med mulighed for at logge ind og lave ny bruger */
 require 'db.php';
 session_start();
 
 if ($_SERVER['HTTPS'] != "on") {
-    $url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-    header("Location: $url");
-    exit;
-}
-
+     $url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+     header("Location: $url");
+     exit;
+ }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   <title>Digitalt Kørekort</title>
   <?php include 'css/css.html'; ?>
+	<meta charset="UTF-8">
 </head>
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    if (isset($_POST['login'])) { //user logging in
+    if (isset($_POST['login'])) { //Brugeren logger ind
 
         require 'login.php';
 
     }
 
-    elseif (isset($_POST['register'])) { //user registering
+    elseif (isset($_POST['register'])) { //Registrering af bruger
 
         require 'register.php';
 
@@ -126,10 +125,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
         </div>
 
-      </div><!-- tab-content -->
+      </div>
 
-</div> <!-- /form -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?ver='></script>
+</div> 
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?ver=<?php echo rand(111,999)?>'></script>
 
     <script src="js/index.js"></script>
 
