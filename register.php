@@ -72,12 +72,12 @@ else { // Hvis emailen ikke allerde findes, indsæt data i database
           $mail->isSMTP();                                      // Set mailer to use SMTP
           $mail->Host = 'asmtp.curanet.dk';  // Specify main and backup SMTP servers
           $mail->SMTPAuth = true;                               // Enable SMTP authentication
-          $mail->Username = 'service@kajkager.dk';                 // SMTP username
-          $mail->Password = 'Admin123';                           // SMTP password
+          $mail->Username = 'aktivering@kajkager.dk';                 // SMTP username
+          $mail->Password = 'Admin321';                           // SMTP password
           $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
           $mail->Port = 8080;                                    // TCP port to connect to
 
-          $mail->setFrom('service@kajkager.dk');
+          $mail->setFrom('aktivering@kajkager.dk');
           $mail->addAddress($to);     // Add a recipient
 
           $mail->isHTML(true);                                  // Set email format to HTML
